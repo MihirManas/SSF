@@ -131,8 +131,8 @@ if (roleInput) {
         const defaultSuggestions = (popularRoles[surveyData.branch] || popularRoles['Computer Science']).map(r => r.name);
         const matched = defaultSuggestions.filter(role => role.toLowerCase().includes(val) && !surveyData.roles.includes(role));
         
+        suggestionsBox.style.display = 'block';
         if (matched.length > 0) {
-            suggestionsBox.style.display = 'block';
             matched.forEach(role => {
                 const div = document.createElement('div');
                 div.className = 'suggestion-item';
@@ -140,12 +140,14 @@ if (roleInput) {
                 div.onclick = () => addRole(role);
                 suggestionsBox.appendChild(div);
             });
-        } else {
-            // Option to add custom
-            suggestionsBox.style.display = 'block';
+        }
+        
+        const exactMatch = matched.find(r => r.toLowerCase() === val);
+        if (!exactMatch) {
             const div = document.createElement('div');
             div.className = 'suggestion-item';
-            div.innerText = `Add "${this.value}"`;
+            div.style.borderTop = matched.length > 0 ? '1px solid rgba(255, 255, 255, 0.1)' : 'none';
+            div.innerHTML = `<em>Add custom role:</em> <strong>"${this.value}"</strong>`;
             div.onclick = () => addRole(this.value);
             suggestionsBox.appendChild(div);
         }
