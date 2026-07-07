@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey - BeyondTheDegree</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="survey.css">
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <div class="survey-wrapper">
+        <header class="survey-header">
+            <a href="index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 4 h12 c6.627 0 12 5.373 12 12 0 3.314 -1.343 6.314 -3.515 8.485C22.314 26.657 19.314 28 16 28 H4 V4 z" fill="url(#paint0_linear)"/>
+                    <path d="M4 16 h10 c4.418 0 8 3.582 8 8 0 2.21 -0.895 4.21 -2.343 5.657C17.21 30.105 15.21 31 13 31 H4 V16 z" fill="#3b76ff"/>
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#709cff" />
+                            <stop offset="1" stop-color="#3b76ff" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">BeyondTheDegree</span>
+            </a>
+            <div class="progress-container">
+                <div class="progress-text"><span id="current-step-num">1</span> / 7</div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+            </div>
+        </header>
+
+        <main class="survey-container" id="survey-container">
+            <!-- Step 1: Welcome -->
+            <div class="step active" id="step-1">
+                <div class="content-centered">
+                    <div class="badge">Student Survey</div>
+                    <h1 class="fade-up">We're investigating why students don't get placed.</h1>
+                    <p class="subtitle fade-up delay-1">Your experience can help thousands of future students get better opportunities.</p>
+                    
+                    <div class="stats-container fade-up delay-2">
+                        <div class="stat-item">
+                            <span class="icon">⏱</span>
+                            <span>Takes only <strong>4 minutes</strong></span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="icon">👥</span>
+                            <span><strong>3,482</strong> students already participated</span>
+                        </div>
+                    </div>
+
+                    <button class="primary-btn fade-up delay-3" onclick="nextStep(2)">
+                        Start Survey 
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Branch -->
+            <div class="step" id="step-2">
+                <div class="content-centered">
+                    <h2>Which branch are you from?</h2>
+                    <p class="step-subtitle">Select your academic discipline</p>
+                    <div class="options-grid branch-options">
+                        <button class="card-btn" onclick="selectBranch('Computer Science', 3)">
+                            <div class="card-icon">💻</div>
+                            <span>Computer Sci</span>
+                        </button>
+                        <button class="card-btn" onclick="selectBranch('Electronics', 3)">
+                            <div class="card-icon">⚡</div>
+                            <span>Electronics</span>
+                        </button>
+                        <button class="card-btn" onclick="selectBranch('Mechanical', 3)">
+                            <div class="card-icon">⚙️</div>
+                            <span>Mechanical</span>
+                        </button>
+                        <button class="card-btn" onclick="selectBranch('Civil', 3)">
+                            <div class="card-icon">🏗️</div>
+                            <span>Civil</span>
+                        </button>
+                    </div>
+                    <div class="actions">
+                        <button class="secondary-btn" onclick="prevStep(1)">Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Target Role -->
+            <div class="step" id="step-3">
+                <div class="content-centered">
+                    <h2>Which career roles are you targeting?</h2>
+                    <p class="step-subtitle">You can select multiple roles</p>
+                    <div class="input-wrapper">
+                        <input type="text" id="role-input" placeholder="Start typing... e.g. Frontend Developer" autocomplete="off">
+                        <div class="suggestions-dropdown" id="role-suggestions"></div>
+                    </div>
+                    <div class="selected-tags" id="selected-roles"></div>
+                    <div class="actions">
+                        <button class="secondary-btn" onclick="prevStep(2)">Back</button>
+                        <button class="primary-btn" onclick="nextStep(4)" id="btn-next-3" disabled>Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Confidence -->
+            <div class="step" id="step-4">
+                <div class="content-centered">
+                    <h2>How confident are you about placements?</h2>
+                    <p class="step-subtitle">Be honest with your current feelings</p>
+                    <div class="emoji-selector">
+                        <button class="emoji-btn" onclick="selectConfidence(1, 5)">
+                            <span class="emoji">😰</span>
+                            <span class="emoji-label">Terrified</span>
+                        </button>
+                        <button class="emoji-btn" onclick="selectConfidence(2, 5)">
+                            <span class="emoji">😕</span>
+                            <span class="emoji-label">Worried</span>
+                        </button>
+                        <button class="emoji-btn" onclick="selectConfidence(3, 5)">
+                            <span class="emoji">😐</span>
+                            <span class="emoji-label">Neutral</span>
+                        </button>
+                        <button class="emoji-btn" onclick="selectConfidence(4, 5)">
+                            <span class="emoji">🙂</span>
+                            <span class="emoji-label">Optimistic</span>
+                        </button>
+                        <button class="emoji-btn" onclick="selectConfidence(5, 5)">
+                            <span class="emoji">😎</span>
+                            <span class="emoji-label">Confident</span>
+                        </button>
+                    </div>
+                    <div class="actions">
+                        <button class="secondary-btn" onclick="prevStep(3)">Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Companies Applied -->
+            <div class="step" id="step-5">
+                <div class="content-centered">
+                    <h2>How many companies have you applied to?</h2>
+                    <p class="step-subtitle">Move the slider to indicate your approximate number</p>
+                    <div class="slider-container">
+                        <div class="slider-bubble" id="slider-bubble">0</div>
+                        <input type="range" id="companies-slider" min="0" max="500" value="0" class="custom-slider">
+                        <div class="slider-labels">
+                            <span>0</span>
+                            <span>500+</span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="secondary-btn" onclick="prevStep(4)">Back</button>
+                        <button class="primary-btn" onclick="nextStep(6)">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6: Biggest Problems -->
+            <div class="step" id="step-6">
+                <div class="content-centered">
+                    <h2>What is the biggest problem you are facing?</h2>
+                    <p class="step-subtitle">Select all that apply to your situation</p>
+                    <div class="options-grid problem-options">
+                        <button class="chip-btn" onclick="toggleProblem(this)">Lack of Skills</button>
+                        <button class="chip-btn" onclick="toggleProblem(this)">No Callbacks</button>
+                        <button class="chip-btn" onclick="toggleProblem(this)">Poor Resume</button>
+                        <button class="chip-btn" onclick="toggleProblem(this)">Interview Fear</button>
+                        <button class="chip-btn" onclick="toggleProblem(this)">Aptitude Tests</button>
+                        <button class="chip-btn" onclick="toggleProblem(this)">Not Enough Opportunities</button>
+                        <button class="chip-btn" onclick="toggleProblem(this)">No Guidance</button>
+                        <button class="chip-btn" onclick="toggleProblem(this)">Low CGPA</button>
+                    </div>
+                    <div class="actions">
+                        <button class="secondary-btn" onclick="prevStep(5)">Back</button>
+                        <button class="primary-btn" onclick="nextStep(7)" id="btn-next-6" disabled>Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7: Exact Problem -->
+            <div class="step" id="step-7">
+                <div class="content-centered">
+                    <h2>Tell us more about your exact problem</h2>
+                    <p class="step-subtitle">Any specific details help us understand better</p>
+                    <div class="textarea-wrapper">
+                        <textarea id="exact-problem" rows="5" placeholder="I feel that when I apply to companies..."></textarea>
+                    </div>
+                    <div class="actions">
+                        <button class="secondary-btn" onclick="prevStep(6)">Back</button>
+                        <button class="primary-btn submit-btn" onclick="submitSurvey()">
+                            Submit Survey
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8: Thank you -->
+            <div class="step" id="step-8">
+                <div class="content-centered thank-you-content">
+                    <div class="success-icon heart-icon">❤️</div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Thank You.</h2>
+                    <p class="subtitle" style="font-size: 1.25rem; font-weight: 500; color: #fff; margin-bottom: 2rem;">
+                        You're helping us discover<br>
+                        why students struggle<br>
+                        with placements.
+                    </p>
+                    <p class="step-subtitle" style="margin-bottom: 3rem;">
+                        We'll publish the findings<br>
+                        once enough responses are collected.
+                    </p>
+                    <button class="primary-btn whatsapp-btn" onclick="window.location.href='#'" style="background: #25D366; color: white; width: 100%; justify-content: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
+                        Join WhatsApp Community
+                    </button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    
+    <script src="survey.js"></script>
+</body>
+</html>
