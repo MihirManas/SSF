@@ -382,13 +382,34 @@ h2 {
 }
 
 /* Step 3 Specific */
-.input-wrapper {
+.search-container {
     width: 100%;
     position: relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
 }
 
-#role-input, #exact-problem {
+.search-icon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+#role-input {
+    width: 100%;
+    background: var(--primary-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1rem 1.5rem 1rem 3.5rem;
+    color: var(--text-main);
+    font-size: 1rem;
+    transition: var(--transition-fast);
+    outline: none;
+}
+
+#exact-problem {
     width: 100%;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -404,6 +425,58 @@ h2 {
 #role-input:focus, #exact-problem:focus {
     border-color: var(--primary-blue);
     box-shadow: 0 0 0 4px rgba(59, 118, 255, 0.15);
+}
+
+.section-title {
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-align: left;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.popular-roles-section {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.popular-roles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.role-card-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-align: left;
+    outline: none;
+}
+
+.role-card-btn:hover {
+    background: var(--card-hover);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.role-card-btn.selected {
+    background: rgba(59, 118, 255, 0.1);
+    border-color: var(--primary-blue);
+}
+
+.role-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .suggestions-dropdown {

@@ -100,10 +100,19 @@
                 <div class="content-centered">
                     <h2>Which career roles are you targeting?</h2>
                     <p class="step-subtitle">You can select multiple roles</p>
-                    <div class="input-wrapper">
-                        <input type="text" id="role-input" placeholder="Start typing... e.g. Frontend Developer" autocomplete="off">
+                    <div class="search-container">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        <input type="text" id="role-input" placeholder="Search or enter target role..." autocomplete="off">
                         <div class="suggestions-dropdown" id="role-suggestions"></div>
                     </div>
+                    
+                    <div class="popular-roles-section">
+                        <h3 class="section-title">Popular roles</h3>
+                        <div class="popular-roles-grid" id="popular-roles-grid">
+                            <!-- populated by js -->
+                        </div>
+                    </div>
+
                     <div class="selected-tags" id="selected-roles"></div>
                     <div class="actions">
                         <button class="secondary-btn" onclick="prevStep(2)">Back</button>
