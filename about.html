@@ -3,28 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeyondTheDegree - Solve Your Placement Problems</title>
+    <title>About Us - BeyondTheDegree</title>
     <meta name="description" content="We're building solutions that bridge the gap between students and great opportunities. Take our quick survey.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .inner-page-content {
+            padding: 2rem 0 5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .inner-page-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .inner-page-content p.desc {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .inner-page-content h1 { font-size: 2.8rem; }
+        }
+    </style>
 </head>
 <body>
     <div class="background-decorations">
-        <!-- We will put background faint icons here -->
         <div class="bg-icon bg-target"><img src="assets/Home/target.png" alt="" aria-hidden="true"></div>
         <div class="bg-icon bg-people"><img src="assets/Home/people.png" alt="" aria-hidden="true"></div>
         <div class="bg-icon bg-paperplane"><img src="assets/Home/paperplane.png" alt="" aria-hidden="true"></div>
-        <!-- Some background buildings silhouette (using CSS) -->
-        <div class="city-skyline"></div>
     </div>
 
     <div class="container">
         <header>
             <div class="logo">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- A simple approximation of the 'B' logo -->
                     <path d="M4 4 h12 c6.627 0 12 5.373 12 12 0 3.314 -1.343 6.314 -3.515 8.485C22.314 26.657 19.314 28 16 28 H4 V4 z" fill="url(#paint0_linear)"/>
                     <path d="M4 16 h10 c4.418 0 8 3.582 8 8 0 2.21 -0.895 4.21 -2.343 5.657C17.21 30.105 15.21 31 13 31 H4 V16 z" fill="#1b49c4"/>
                     <defs>
@@ -45,8 +63,8 @@
             
             <div class="nav-container" id="nav-container">
                 <nav class="nav-links">
-                    <a href="index.html" class="active">Home</a>
-                    <a href="about.html">About Us</a>
+                    <a href="index.html">Home</a>
+                    <a href="about.html" class="active">About Us</a>
                     <a href="what-we-do.html">What We Do</a>
                     <a href="resources.html">Resources</a>
                     <a href="contact.html">Contact</a>
@@ -56,52 +74,14 @@
             </div>
         </header>
 
-        <main>
-            <div class="hero-left">
-                <h1>Let's solve your<br>placement <span class="highlight">problems.</span></h1>
-                
-                <p class="subtitle">We're building solutions that bridge the gap between students and <strong>great opportunities.</strong></p>
-                
-                <div class="features">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <img src="assets/Home/target.png" alt="Real Insights">
-                        </div>
-                        <div class="feature-text">
-                            <h3>Real Insights</h3>
-                            <p>We understand what students truly need.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <img src="assets/Home/developer.png" alt="Smart Guidance">
-                        </div>
-                        <div class="feature-text">
-                            <h3>Smart Guidance</h3>
-                            <p>Personalized support at every step.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <img src="assets/Home/growth .png" alt="Better Opportunities">
-                        </div>
-                        <div class="feature-text">
-                            <h3>Better Opportunities</h3>
-                            <p>Connecting you with the right possibilities.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="survey.html" class="main-cta-btn">Tell us about your placement challenges <span class="arrow">&rarr;</span></a>
-                
-                <p class="survey-text">Take our <strong>quick survey</strong> and help us build what matters to you.</p>
-            </div>
-
-            <div class="hero-right">
-                <div class="character-wrapper">
-                    <!-- The speech bubbles might be part of the character, but we'll add them as CSS elements if they are not. Assuming they are part of the composition if the image is huge. If not, they won't show. -->
-                    <img src="assets/Home/character.png" alt="Student thinking about placement problems" class="main-character">
-                </div>
+        <main class="inner-page-content">
+            <h1>About <span class="highlight">Us</span></h1>
+            <p class="desc">At BeyondTheDegree, we are a passionate group of researchers, educators, and industry professionals dedicated to understanding the real challenges students face when transitioning from campus to the corporate world.</p>
+            <p class="desc">We believe that education should empower individuals to achieve their career goals seamlessly. However, a significant gap exists between academic learning and industry expectations. Our mission is to study this gap deeply and develop insights that can help bridge it.</p>
+            <p class="desc">Through our comprehensive surveys and data analysis, we aim to map out the exact hurdles students encounter across various domains. This initiative is our first step towards building a future where every student has the right tools, knowledge, and guidance to succeed.</p>
+            
+            <div style="text-align: center; margin-top: 3.5rem;">
+                <a href="survey.html" class="main-cta-btn">Join the Research Initiative <span class="arrow">&rarr;</span></a>
             </div>
         </main>
     </div>

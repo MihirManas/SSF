@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What We Do - BeyondTheDegree</title>
+    <meta name="description" content="We're building solutions that bridge the gap between students and great opportunities. Take our quick survey.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .inner-page-content {
+            padding: 2rem 0 5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .inner-page-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .inner-page-content p.desc {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .process-features {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+        .process-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            transition: transform 0.3s ease;
+        }
+        .process-item:hover {
+            transform: translateY(-5px);
+        }
+        .process-icon {
+            font-size: 3rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-light);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .process-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #1e293b;
+        }
+        .process-text p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .inner-page-content h1 { font-size: 2.8rem; }
+            .process-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="bg-icon bg-target"><img src="assets/Home/target.png" alt="" aria-hidden="true"></div>
+        <div class="bg-icon bg-people"><img src="assets/Home/people.png" alt="" aria-hidden="true"></div>
+        <div class="bg-icon bg-paperplane"><img src="assets/Home/paperplane.png" alt="" aria-hidden="true"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 4 h12 c6.627 0 12 5.373 12 12 0 3.314 -1.343 6.314 -3.515 8.485C22.314 26.657 19.314 28 16 28 H4 V4 z" fill="url(#paint0_linear)"/>
+                    <path d="M4 16 h10 c4.418 0 8 3.582 8 8 0 2.21 -0.895 4.21 -2.343 5.657C17.21 30.105 15.21 31 13 31 H4 V16 z" fill="#1b49c4"/>
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#3b76ff" />
+                            <stop offset="1" stop-color="#1b49c4" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">BeyondTheDegree</span>
+            </div>
+            
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-container" id="nav-container">
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="what-we-do.html" class="active">What We Do</a>
+                    <a href="resources.html">Resources</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                
+                <a href="survey.html" class="nav-btn">Take the Survey <span class="arrow">&rarr;</span></a>
+            </div>
+        </header>
+
+        <main class="inner-page-content">
+            <h1>What We <span class="highlight">Do</span></h1>
+            <p class="desc">We are currently conducting one of the most comprehensive studies on student placement challenges. Our goal is to collect qualitative and quantitative data from students to uncover the root causes behind early career struggles.</p>
+            
+            <div class="process-features">
+                <div class="process-item">
+                    <div class="process-icon">📊</div>
+                    <div class="process-text">
+                        <h3>Extensive Data Collection</h3>
+                        <p>We are gathering detailed, on-the-ground experiences and pain points from students navigating the complex landscape of college placements.</p>
+                    </div>
+                </div>
+                
+                <div class="process-item">
+                    <div class="process-icon">🧠</div>
+                    <div class="process-text">
+                        <h3>In-depth Analysis</h3>
+                        <p>Our team rigorously analyzes the survey responses to categorize challenges by domain, identifying patterns that most students aren't even aware of.</p>
+                    </div>
+                </div>
+                
+                <div class="process-item">
+                    <div class="process-icon">💡</div>
+                    <div class="process-text">
+                        <h3>Driving Actionable Solutions</h3>
+                        <p>We use these deep insights to envision a future where resources and support structures are uniquely tailored to address the exact problems students face today.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="survey.html" class="main-cta-btn">Contribute to Our Research <span class="arrow">&rarr;</span></a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navContainer = document.getElementById('nav-container');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        if (hamburger && navContainer) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navContainer.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navContainer.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

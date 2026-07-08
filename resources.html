@@ -3,28 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeyondTheDegree - Solve Your Placement Problems</title>
+    <title>Resources - BeyondTheDegree</title>
     <meta name="description" content="We're building solutions that bridge the gap between students and great opportunities. Take our quick survey.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .inner-page-content {
+            padding: 2rem 0 5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .inner-page-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .inner-page-content p.desc {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .coming-soon-box {
+            background: white;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(43, 94, 225, 0.08);
+            margin-top: 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .coming-soon-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #3b76ff, #1b49c4);
+        }
+        .coming-soon-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #1a233a;
+        }
+        .coming-soon-box p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+        }
+        @media (max-width: 768px) {
+            .inner-page-content h1 { font-size: 2.8rem; }
+            .coming-soon-box { padding: 3rem 1.5rem; }
+        }
+    </style>
 </head>
 <body>
     <div class="background-decorations">
-        <!-- We will put background faint icons here -->
         <div class="bg-icon bg-target"><img src="assets/Home/target.png" alt="" aria-hidden="true"></div>
         <div class="bg-icon bg-people"><img src="assets/Home/people.png" alt="" aria-hidden="true"></div>
         <div class="bg-icon bg-paperplane"><img src="assets/Home/paperplane.png" alt="" aria-hidden="true"></div>
-        <!-- Some background buildings silhouette (using CSS) -->
-        <div class="city-skyline"></div>
     </div>
 
     <div class="container">
         <header>
             <div class="logo">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- A simple approximation of the 'B' logo -->
                     <path d="M4 4 h12 c6.627 0 12 5.373 12 12 0 3.314 -1.343 6.314 -3.515 8.485C22.314 26.657 19.314 28 16 28 H4 V4 z" fill="url(#paint0_linear)"/>
                     <path d="M4 16 h10 c4.418 0 8 3.582 8 8 0 2.21 -0.895 4.21 -2.343 5.657C17.21 30.105 15.21 31 13 31 H4 V16 z" fill="#1b49c4"/>
                     <defs>
@@ -45,10 +96,10 @@
             
             <div class="nav-container" id="nav-container">
                 <nav class="nav-links">
-                    <a href="index.html" class="active">Home</a>
+                    <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="what-we-do.html">What We Do</a>
-                    <a href="resources.html">Resources</a>
+                    <a href="resources.html" class="active">Resources</a>
                     <a href="contact.html">Contact</a>
                 </nav>
                 
@@ -56,52 +107,14 @@
             </div>
         </header>
 
-        <main>
-            <div class="hero-left">
-                <h1>Let's solve your<br>placement <span class="highlight">problems.</span></h1>
-                
-                <p class="subtitle">We're building solutions that bridge the gap between students and <strong>great opportunities.</strong></p>
-                
-                <div class="features">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <img src="assets/Home/target.png" alt="Real Insights">
-                        </div>
-                        <div class="feature-text">
-                            <h3>Real Insights</h3>
-                            <p>We understand what students truly need.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <img src="assets/Home/developer.png" alt="Smart Guidance">
-                        </div>
-                        <div class="feature-text">
-                            <h3>Smart Guidance</h3>
-                            <p>Personalized support at every step.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <img src="assets/Home/growth .png" alt="Better Opportunities">
-                        </div>
-                        <div class="feature-text">
-                            <h3>Better Opportunities</h3>
-                            <p>Connecting you with the right possibilities.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="survey.html" class="main-cta-btn">Tell us about your placement challenges <span class="arrow">&rarr;</span></a>
-                
-                <p class="survey-text">Take our <strong>quick survey</strong> and help us build what matters to you.</p>
-            </div>
-
-            <div class="hero-right">
-                <div class="character-wrapper">
-                    <!-- The speech bubbles might be part of the character, but we'll add them as CSS elements if they are not. Assuming they are part of the composition if the image is huge. If not, they won't show. -->
-                    <img src="assets/Home/character.png" alt="Student thinking about placement problems" class="main-character">
-                </div>
+        <main class="inner-page-content">
+            <h1>Free <span class="highlight">Resources</span></h1>
+            <p class="desc">We are currently gathering and analyzing survey data to build the most effective, domain-targeted resources for you.</p>
+            
+            <div class="coming-soon-box">
+                <h2>Coming Soon</h2>
+                <p>Our team is working hard behind the scenes. By participating in our survey, you get early access to all our upcoming domain-specific guides, templates, and insights once they launch.</p>
+                <a href="survey.html" class="main-cta-btn" style="margin-bottom: 0;">Take Survey for Early Access <span class="arrow">&rarr;</span></a>
             </div>
         </main>
     </div>
