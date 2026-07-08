@@ -37,15 +37,23 @@
                 <span class="logo-text">BeyondTheDegree</span>
             </div>
             
-            <nav class="nav-links">
-                <a href="#" class="active">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">What We Do</a>
-                <a href="#">Resources</a>
-                <a href="#">Contact</a>
-            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             
-            <a href="survey.html" class="nav-btn">Take the Survey <span class="arrow">&rarr;</span></a>
+            <div class="nav-container" id="nav-container">
+                <nav class="nav-links">
+                    <a href="#" class="active">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">What We Do</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Contact</a>
+                </nav>
+                
+                <a href="survey.html" class="nav-btn">Take the Survey <span class="arrow">&rarr;</span></a>
+            </div>
         </header>
 
         <main>
@@ -97,5 +105,25 @@
             </div>
         </main>
     </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navContainer = document.getElementById('nav-container');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        if (hamburger && navContainer) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navContainer.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navContainer.classList.remove('active');
+                });
+            });
+        }
+    </script>
 </body>
 </html>
