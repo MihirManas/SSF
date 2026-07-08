@@ -33,7 +33,7 @@
                 <span class="logo-text">BeyondTheDegree</span>
             </a>
             <div class="progress-container">
-                <div class="progress-text"><span id="current-step-num">1</span> / 7</div>
+                <div class="progress-text"><span id="current-step-num">1</span> / 8</div>
                 <div class="progress-bar-bg">
                     <div class="progress-bar" id="progress-bar"></div>
                 </div>
@@ -206,6 +206,35 @@
                     </div>
                     <div class="actions">
                         <button class="secondary-btn" onclick="prevStep(6)">Back</button>
+                        <button class="primary-btn" onclick="nextStep(8)">
+                            Continue
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8: Contact Info -->
+            <div class="step" id="step-8">
+                <div class="content-centered">
+                    <h2>Where can we reach you?</h2>
+                    <p class="step-subtitle">To share the findings and tailored resources with you</p>
+                    <div style="max-width: 400px; margin: 0 auto; text-align: left;">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; color: #cbd5e1;">Full Name</label>
+                            <input type="text" id="survey-name" placeholder="John Doe" style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; font-family: inherit; font-size: 1rem;" required>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; color: #cbd5e1;">Email Address</label>
+                            <input type="email" id="survey-email" placeholder="john@example.com" style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; font-family: inherit; font-size: 1rem;" required>
+                        </div>
+                        <div style="margin-bottom: 2rem;">
+                            <label style="display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; color: #cbd5e1;">Phone Number</label>
+                            <input type="tel" id="survey-phone" placeholder="+1 234 567 8900" style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: white; font-family: inherit; font-size: 1rem;" required>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="secondary-btn" onclick="prevStep(7)">Back</button>
                         <button class="primary-btn submit-btn" onclick="submitSurvey()">
                             Submit Survey
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -214,8 +243,8 @@
                 </div>
             </div>
 
-            <!-- Step 8: Thank you -->
-            <div class="step" id="step-8">
+            <!-- Step 9: Thank you -->
+            <div class="step" id="step-9">
                 <div class="content-centered thank-you-content">
                     <div class="success-icon heart-icon">❤️</div>
                     <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Thank You.</h2>

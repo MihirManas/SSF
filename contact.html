@@ -145,7 +145,7 @@
                 
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" placeholder="+1 234 567 8900">
+                    <input type="tel" id="phone" placeholder="+1 234 567 8900" required>
                 </div>
                 
                 <div class="form-group">
@@ -172,7 +172,7 @@
                         message: document.getElementById('message').value
                     };
                     
-                    const contactURL = "https://script.google.com/macros/s/AKfycbw3BiTbHJYSZXplRjyT5n35S1Tb4vj1zsx22_kmfisSfWgcALcVnLSZPP4tw5DK3HOU/exec";
+                    const contactURL = "https://script.google.com/macros/s/AKfycbwXeq2FX7FZVjj9z_bt_7uoZs2KWv-rWA-zYRR0Ua8GGWCb8DosCl8AXc__6RHT3Dfd/exec";
                     const formData = new URLSearchParams();
                     formData.append("data", JSON.stringify(data));
                     

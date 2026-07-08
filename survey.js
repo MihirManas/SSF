@@ -1,4 +1,4 @@
-const TOTAL_STEPS = 7;
+const TOTAL_STEPS = 8;
 let currentStep = 1;
 
 const surveyData = {
@@ -7,7 +7,10 @@ const surveyData = {
     confidence: null,
     companiesApplied: 0,
     problems: [],
-    exactProblem: ''
+    exactProblem: '',
+    name: '',
+    email: '',
+    phone: ''
 };
 
 // Roles suggestions based on branch
@@ -262,15 +265,24 @@ function toggleProblem(btnElement) {
     }
 }
 
-// Step 7: Submit
+// Step 7/8: Submit
 function submitSurvey() {
     const exactProb = document.getElementById('exact-problem');
     if (exactProb) {
         surveyData.exactProblem = exactProb.value;
     }
     
+    const surveyName = document.getElementById('survey-name');
+    if (surveyName) surveyData.name = surveyName.value;
+    
+    const surveyEmail = document.getElementById('survey-email');
+    if (surveyEmail) surveyData.email = surveyEmail.value;
+    
+    const surveyPhone = document.getElementById('survey-phone');
+    if (surveyPhone) surveyData.phone = surveyPhone.value;
+    
     // Show loading state on the button
-    const submitBtn = document.querySelector('.step.active .primary-btn');
+    const submitBtn = document.querySelector('.step.active .primary-btn.submit-btn');
     const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
     if (submitBtn) {
         submitBtn.innerHTML = 'Submitting... <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spinner"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>';
@@ -279,7 +291,7 @@ function submitSurvey() {
     
     console.log("Survey Completed:", surveyData);
     
-    const surveyURL = "https://script.google.com/macros/s/AKfycbwkGFMnP14uHRsPIeAdYTCF6CJh-vx97mFIBgyb6cXYWjjD6mnEvnhgfxgTB7Oln5y4jw/exec";
+    const surveyURL = "https://script.google.com/macros/s/AKfycbxCzey32qxYsG7NL-YY7_zLixhnFtKkrTTBMQCijU7lDGG7OEnmdlUuS3ZLTFsRcOUGjA/exec";
     const formData = new URLSearchParams();
     formData.append("data", JSON.stringify(surveyData));
 
@@ -295,7 +307,7 @@ function submitSurvey() {
         }
         
         // Show thank you step
-        showStep(8);
+        showStep(9);
     }).catch(error => {
         console.error("Error saving survey:", error);
         alert("There was an error submitting your survey. Please try again.");
