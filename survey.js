@@ -273,13 +273,18 @@ function submitSurvey() {
     }
     
     const surveyName = document.getElementById('survey-name');
-    if (surveyName) surveyData.name = surveyName.value;
-    
     const surveyEmail = document.getElementById('survey-email');
-    if (surveyEmail) surveyData.email = surveyEmail.value;
-    
     const surveyPhone = document.getElementById('survey-phone');
-    if (surveyPhone) surveyData.phone = surveyPhone.value;
+    
+    // Validation for mandatory fields
+    if (!surveyName || !surveyName.value.trim() || !surveyEmail || !surveyEmail.value.trim() || !surveyPhone || !surveyPhone.value.trim()) {
+        alert("Please fill in your Name, Email, and Phone Number so we can reach you.");
+        return;
+    }
+    
+    surveyData.name = surveyName.value.trim();
+    surveyData.email = surveyEmail.value.trim();
+    surveyData.phone = surveyPhone.value.trim();
     
     // Show loading state on the button
     const submitBtn = document.querySelector('.step.active .primary-btn.submit-btn');
