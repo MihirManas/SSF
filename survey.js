@@ -269,14 +269,39 @@ function submitSurvey() {
         surveyData.exactProblem = exactProb.value;
     }
     
-    console.log("Survey Completed:", surveyData);
-    
-    // Hide header
-    const header = document.querySelector('.survey-header');
-    if (header) {
-        header.style.display = 'none';
+    // Show loading state on the button
+    const submitBtn = document.querySelector('.step.active .primary-btn');
+    const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
+    if (submitBtn) {
+        submitBtn.innerHTML = 'Submitting... <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spinner"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>';
+        submitBtn.disabled = true;
     }
     
-    // Show thank you step
-    showStep(8);
+    console.log("Survey Completed:", surveyData);
+    
+    const surveyURL = "https://script.google.com/macros/s/AKfycbwkGFMnP14uHRsPIeAdYTCF6CJh-vx97mFIBgyb6cXYWjjD6mnEvnhgfxgTB7Oln5y4jw/exec";
+    const formData = new URLSearchParams();
+    formData.append("data", JSON.stringify(surveyData));
+
+    fetch(surveyURL, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+    }).then(() => {
+        // Hide header
+        const header = document.querySelector('.survey-header');
+        if (header) {
+            header.style.display = 'none';
+        }
+        
+        // Show thank you step
+        showStep(8);
+    }).catch(error => {
+        console.error("Error saving survey:", error);
+        alert("There was an error submitting your survey. Please try again.");
+        if (submitBtn) {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    });
 }

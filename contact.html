@@ -132,7 +132,7 @@
             <h1>Get in <span class="highlight">Touch</span></h1>
             <p class="desc">Have questions about our research initiative or want to share a unique perspective? We'd love to hear from you.</p>
             
-            <form class="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for your message! We will get back to you soon.'); this.reset();">
+            <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" placeholder="John Doe" required>
@@ -148,8 +148,45 @@
                     <textarea id="message" placeholder="How can we help you?" required></textarea>
                 </div>
                 
-                <button type="submit" class="main-cta-btn submit-btn">Send Message <span class="arrow">&rarr;</span></button>
+                <button type="submit" class="main-cta-btn submit-btn" id="submitBtn">Send Message <span class="arrow">&rarr;</span></button>
             </form>
+            
+            <script>
+                document.getElementById('contactForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = document.getElementById('submitBtn');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    const data = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        message: document.getElementById('message').value
+                    };
+                    
+                    const contactURL = "https://script.google.com/macros/s/AKfycbw3BiTbHJYSZXplRjyT5n35S1Tb4vj1zsx22_kmfisSfWgcALcVnLSZPP4tw5DK3HOU/exec";
+                    const formData = new URLSearchParams();
+                    formData.append("data", JSON.stringify(data));
+                    
+                    fetch(contactURL, {
+                        method: 'POST',
+                        body: formData,
+                        mode: 'no-cors'
+                    }).then(() => {
+                        alert('Thank you for your message! We will get back to you soon.');
+                        document.getElementById('contactForm').reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }).catch(error => {
+                        console.error('Error:', error);
+                        alert('There was an error sending your message. Please try again.');
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+                });
+            </script>
         </main>
     </div>
 
